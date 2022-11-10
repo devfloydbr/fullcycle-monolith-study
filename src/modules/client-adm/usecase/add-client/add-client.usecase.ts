@@ -22,7 +22,8 @@ export default class AddClientUseCase {
     };
 
     const client = new Client(props);
-    this._clientRepository.add(client);
+
+    await this._clientRepository.add(client);
 
     return {
       id: client.id.id,

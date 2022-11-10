@@ -12,9 +12,9 @@ type ClientProps = {
 };
 
 export default class Client extends BaseEntity implements AggregateRoot {
-  private _name: string;
-  private _email: string;
-  private _address: string;
+  private readonly _name: string;
+  private readonly _email: string;
+  private readonly _address: string;
 
   constructor(props: ClientProps) {
     super(props.id, props.createdAt, props.updatedAt);

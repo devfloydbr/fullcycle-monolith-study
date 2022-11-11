@@ -41,7 +41,7 @@ const MockRepository = () => {
   }
 }
 
-describe('Generate Invoice useCase unit test', () => {
+describe('Generate Invoice use case unit test', () => {
   it('should be able to generate a Invoice', async () => {
     const invoiceRepository = MockRepository()
     const useCase = new GenerateInvoiceUseCase(invoiceRepository)

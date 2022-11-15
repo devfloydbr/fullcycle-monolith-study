@@ -7,10 +7,10 @@ import {
   PrimaryKey,
   Table
 } from 'sequelize-typescript'
-import InvoiceModel from './invoice.model'
+import OrderModel from './order.model'
 
 @Table({
-  tableName: 'invoice',
+  tableName: 'order_products',
   timestamps: false
 })
 export default class ProductModel extends Model {
@@ -18,16 +18,19 @@ export default class ProductModel extends Model {
   @Column({ allowNull: false })
   id: string
 
-  @ForeignKey(() => InvoiceModel)
+  @ForeignKey(() => OrderModel)
   @Column
-  invoice_id: string
+  order_id: string
 
-  @BelongsTo(() => InvoiceModel)
-  invoice: Awaited<InvoiceModel>
+  @BelongsTo(() => OrderModel)
+  order: Awaited<OrderModel>
 
   @Column({ allowNull: false })
   name: string
 
+  @Column({ allowNull: false })
+  description: string
+
   @Column({ allowNull: false, type: DataType.DECIMAL })
-  price: number
+  salesPrice: number
 }
